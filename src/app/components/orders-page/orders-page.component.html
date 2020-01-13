@@ -1,0 +1,16 @@
+<div class="orders_box">
+  <div class="orders_box_order">
+    <div class="orders_box_ordersList" *ngFor="let order of orders">
+
+    </div>
+    <div class="orders_box_statusBar">
+      <p>Status</p>
+      <button type="button" (click)="showStatusList()" class="btn btn-primary"> Choose order status</button>
+      <div *ngIf="ShowStatusList">
+        <div *ngFor="let status of statusList">
+          <button (click)="ChooseStatus()">{{status.name}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

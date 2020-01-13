@@ -1,0 +1,30 @@
+.orders_box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.orders_box_order {
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 600px;
+  height: 200px;
+  margin: 20px 0 20px 20px;
+  overflow: hidden;
+  display: flex;
+}
+
+.orders_box_ordersList {
+
+  height: 100%;
+  width: 400px;
+  background-color: green;
+}
+
+.orders_box_statusBar {
+  width: 200px;
+  height: 100%;
+
+}
