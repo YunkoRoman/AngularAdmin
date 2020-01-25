@@ -28,6 +28,7 @@ export class OrdersPageComponent implements OnInit {
   getSocketData(): void {
     this.sub = this.SocketService.getOrders()
       .subscribe(data => {
+        console.log(data);
         this.orders = data
       })
   }

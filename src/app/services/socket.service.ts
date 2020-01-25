@@ -13,7 +13,7 @@ export class SocketService {
   }
 
   sendRestaurantId() {
-    this.socket.emit('restaurant_id', 2)
+    this.socket.emit('restaurant_id', 1)
   }
   // getOrders(){
   // this.socket.on('getOrders', result => {
