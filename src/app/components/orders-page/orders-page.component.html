@@ -1,14 +1,17 @@
+<app-header></app-header>
 <div class="orders_box">
-  <div class="orders_box_order">
-    <div class="orders_box_ordersList" *ngFor="let order of orders">
-
+  <div class="orders_box_order" *ngFor="let order of orders; let index = index" >
+    <div class="orders_box_ordersList" >
+      <div *ngFor="let element of order.order_lines">
+        {{element.product.name}}
+      </div>
     </div>
     <div class="orders_box_statusBar">
-      <p>Status</p>
-      <button type="button" (click)="showStatusList()" class="btn btn-primary"> Choose order status</button>
-      <div *ngIf="ShowStatusList">
+      <p>Status: {{order.order_status.status }}</p>
+      <button type="button" (click)="showSubItem(index)" class="btn btn-primary"> Choose order status</button>
+      <div  *ngIf="visibleIndex === index" >
         <div *ngFor="let status of statusList">
-          <button (click)="ChooseStatus()">{{status.name}}</button>
+          <button (click)="ChooseStatus(status.status_id, order.id)">{{status.status}}</button>
         </div>
       </div>
     </div>

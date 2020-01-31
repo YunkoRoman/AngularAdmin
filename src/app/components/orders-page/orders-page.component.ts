@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SocketService} from "../../services/socket.service";
 import {Subscription} from "rxjs/internal/Subscription";
+import {OrderService} from "../../services/order.service";
+import {Response} from "../../interfaces/Response";
 
 @Component({
   selector: 'app-orders-page',
@@ -8,40 +10,59 @@ import {Subscription} from "rxjs/internal/Subscription";
   styleUrls: ['./orders-page.component.css']
 })
 export class OrdersPageComponent implements OnInit {
-  private statusList: any = [
-    {name: 'В роботі'},
-    {name: 'Готово'}
-  ];
-  private orders:any;
-  private ShowStatusList: boolean = false;
+  private statusList: any = [];
+  private orders: any;
   private sub: Subscription;
+  private  visibleIndex: number = -1;
 
-  constructor(private SocketService: SocketService) {
+  constructor(private SocketService: SocketService,
+              private OrderService: OrderService
+  ) {
   }
 
   ngOnInit() {
+    this.getOrderStatus();
 
     this.SocketService.sendRestaurantId();
+
     this.getSocketData()
+
+  }
+  getOrderStatus(){
+    this.OrderService.getStatus(1).subscribe((data: Response) => {
+     this.statusList = data.msg
+    })
   }
 
   getSocketData(): void {
     this.sub = this.SocketService.getOrders()
       .subscribe(data => {
+        // data.forEach(e => {
+        //   e.order_lines.forEach( c => {
+        //     console.log(c);
+        //   })
+        // })
         console.log(data);
         this.orders = data
       })
   }
 
-  showStatusList() {
-    if (this.ShowStatusList == false) {
-      this.ShowStatusList = true
+
+
+  showSubItem(ind) {
+    if (this.visibleIndex === ind) {
+      this.visibleIndex = -1;
     } else {
-      this.ShowStatusList = false
+      this.visibleIndex = ind;
     }
   }
 
-  ChooseStatus() {
+
+  ChooseStatus(status_id, order_id) {
+
+    this.OrderService.changeStatus(order_id, status_id).subscribe((data:Response) => {
+      console.log(data);
+    })
 
   }
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import {SocketService} from "../../services/socket.service";
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from "@angular/forms";
+
 @Component({
   selector: 'app-admin-title',
   templateUrl: './admin-title.component.html',
@@ -8,14 +8,17 @@ import {SocketService} from "../../services/socket.service";
 })
 export class AdminTitleComponent implements OnInit {
 
-  constructor(private SocketService:SocketService) { }
+  constructor() {
+  }
 
   ngOnInit() {
 
-   this.SocketService.sendRestaurantId();
-    this.SocketService.getOrders()
   }
 
+  sendForm(loginForm: NgForm) {
+    console.log(loginForm.value);
+
+  }
 
 
 }

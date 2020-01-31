@@ -1,9 +1,9 @@
-<div class="name_page_box">
-  <div class="name-page"><p>ORDERS</p></div>
-</div>
-<div class="restaurant_box">
-  <div class="box">
-    <a  class="box_child">
-    </a>
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" #loginForm = "ngForm"  (ngSubmit)="sendForm(loginForm)">
+      <input  type="email" name="email" placeholder="Login" ngModel />
+      <input type="password" name="password" placeholder="password" ngModel  />
+      <button> Увійти </button>
+    </form>
   </div>
 </div>
