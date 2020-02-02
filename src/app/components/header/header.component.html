@@ -1,8 +1,12 @@
 <div class="head_box">
   <div class="head_box_order_status">
-    <button class="btn btn-primary">Your new order</button>
+    <div class= "nav nav-pills nav-justified">
+      <a class="nav-link" [routerLink]="['/orders']" routerLinkActive="active">Your new order</a>
+      <a class="nav-link" [routerLink]="['/completedOrders']"  routerLinkActive="active">Completed orders</a>
+      <a class="nav-link" [routerLink]="['/statistics']"  routerLinkActive="active">Statistics</a>
+    </div>
   </div>
   <div class="head_box_options">
-    <button class="btn btn-danger"> Exit </button>
+    <button class="btn btn-danger"> Exit</button>
   </div>
 </div>

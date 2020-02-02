@@ -1,6 +1,7 @@
 <app-header></app-header>
+
 <div class="orders_box">
-  <div class="orders_box_order" *ngFor="let order of orders; let index = index">
+  <div class="orders_box_order" *ngFor="let order of completedOrders; let index = index">
     <div class="orders_box_ordersList">
       <div *ngFor="let element of order.order_lines">
         <div class="orders_box_ordersList_element">

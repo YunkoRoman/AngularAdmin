@@ -7,7 +7,7 @@ import {Observable} from "rxjs/internal/Observable";
   providedIn: 'root'
 })
 export class SocketService {
-  observer;
+  private observer:any;
 
   constructor(private socket: Socket) {
   }
@@ -15,11 +15,20 @@ export class SocketService {
   sendRestaurantId() {
     this.socket.emit('restaurant_id', 1)
   }
+  changeStatusOrder(){
+    this.socket.emit('changeStatus', 1)
+  }
 
 
   getOrders(): Observable<any> {
     this.socket.on('getOrders', (res) => {
       this.observer.next(res);
+    });
+    return this.getSocketDataObservable();
+  }
+  getCompletedOrder(): Observable<any> {
+    this.socket.on('getCompletedOrders', (res) => {
+      this.observer.next(res)
     });
     return this.getSocketDataObservable();
   }

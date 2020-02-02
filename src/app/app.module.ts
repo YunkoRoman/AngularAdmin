@@ -9,9 +9,14 @@ import {OrdersPageComponent} from './components/orders-page/orders-page.componen
 import {HttpClientModule} from "@angular/common/http";
 import {HeaderComponent} from './components/header/header.component';
 import {RouterModule, Routes} from "@angular/router";
+import { CompletedOrdersComponent } from './components/completed-orders/completed-orders.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 const routes: Routes = [
   {path: '', component: AdminTitleComponent},
+  {path: 'orders', component: OrdersPageComponent},
+  {path: 'completedOrders', component: CompletedOrdersComponent},
+  {path: 'statistics', component: StatisticsComponent},
 ];
 const config: SocketIoConfig = {url: 'http://localhost:4444', options: {}};
 
@@ -21,13 +26,15 @@ const config: SocketIoConfig = {url: 'http://localhost:4444', options: {}};
     AdminTitleComponent,
     OrdersPageComponent,
     HeaderComponent,
+    CompletedOrdersComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(routes),
     SocketIoModule.forRoot(config),
     HttpClientModule,
-    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
