@@ -1,2 +1,38 @@
 <app-header></app-header>
-<p>statistics works!</p>
+
+<div class="sort_box">
+  <div>
+    <!--<form #statForm="ngForm">-->
+      <!--<input type="text" ngxDaterangepickerMd [(ngModel)]="selected"-->
+             <!--[locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}"-->
+             <!--startKey="start"-->
+             <!--endKey="end"-->
+             <!--name="daterange"-->
+             <!--placeholder="Choose date" class="form-control"/>-->
+    <!--</form>-->
+  </div>
+
+  <button class="sort_btn h2 btn btn-secondary" (click)="showHide()">Choose menu</button>
+  <div *ngIf="showRestFilt">
+    <div class="res_list" *ngFor="let menu of menuList">
+      <button (click)="choseOneRes(menu.id)">{{menu.name}}</button>
+    </div>
+  </div>
+</div>
+<!--<button (click)="GenerateReport()" class="btn btn-info"> Generate</button>-->
+<div class="static_box">
+  <div class="static_box_item shadow_box">
+    <div class="static_box_prod_item" *ngFor="let item of statisticsList2">
+      <p class="h2 menu_name"> Menu name: {{item.product.menu.name}}</p>
+      <div class="product_descr">
+        <div class="prod_img"></div>
+        <div class="prod_inform">
+          <p class="prod_name">{{item.product.name}}</p>
+          <p class="prod_qtt"> Quantity: {{item.qtt}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

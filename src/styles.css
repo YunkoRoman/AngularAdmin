@@ -147,5 +147,24 @@ button {
     считают, что необходимо оставлять стрелочный вид для кнопок */
   cursor: pointer;
 }
+.h1{
+  font-family: 'Roboto',sans-serif;
+  margin-left: 15px;
+  font-size: x-large;
+  font-weight: bold;
+  margin-top: 25px;
+
+}
+.h2{
+  font-family: 'Roboto',sans-serif;
+  margin-left: 15px;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 20px;
+
+}
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

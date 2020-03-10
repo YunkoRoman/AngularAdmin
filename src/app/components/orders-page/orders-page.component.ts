@@ -13,7 +13,7 @@ export class OrdersPageComponent implements OnInit {
   private statusList: any = [];
   private orders: any;
   private sub: Subscription;
-  private  visibleIndex: number = -1;
+  private visibleIndex: number = -1;
 
   constructor(private SocketService: SocketService,
               private OrderService: OrderService
@@ -28,9 +28,10 @@ export class OrdersPageComponent implements OnInit {
     this.getSocketData()
 
   }
-  getOrderStatus(){
+
+  getOrderStatus() {
     this.OrderService.getStatus(1).subscribe((data: Response) => {
-     this.statusList = data.msg
+      this.statusList = data.msg
     })
   }
 
@@ -53,13 +54,10 @@ export class OrdersPageComponent implements OnInit {
 
 
   ChooseStatus(status_id, order_id, status) {
-    if (status == 'Done') {
-        this.SocketService.changeStatusOrder()
-    }
     this.orders.forEach(e => {
-      e.order_status.status = status
+      if (e.id == order_id) e.order_status.status = status
     });
-    this.OrderService.changeStatus(order_id, status_id).subscribe((data:Response) => {
+    this.OrderService.changeStatus(order_id, status_id).subscribe((data: Response) => {
       console.log(data);
     })
 
