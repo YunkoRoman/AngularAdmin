@@ -2,14 +2,15 @@
 
 <div class="sort_box">
   <div>
-    <!--<form #statForm="ngForm">-->
-      <!--<input type="text" ngxDaterangepickerMd [(ngModel)]="selected"-->
-             <!--[locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}"-->
-             <!--startKey="start"-->
-             <!--endKey="end"-->
-             <!--name="daterange"-->
-             <!--placeholder="Choose date" class="form-control"/>-->
-    <!--</form>-->
+    <form >
+      <input type="text" ngxDaterangepickerMd [(ngModel)]="selected"
+             [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}"
+             startKey="start"
+             endKey="end"
+             name="daterange"
+             placeholder="Choose date" class="form-control"/>
+    </form>
+
   </div>
 
   <button class="sort_btn h2 btn btn-secondary" (click)="showHide()">Choose menu</button>
@@ -19,7 +20,7 @@
     </div>
   </div>
 </div>
-<!--<button (click)="GenerateReport()" class="btn btn-info"> Generate</button>-->
+<button (click)="GenerateReport()" class="btn btn-info"> Generate</button>
 <div class="static_box">
   <div class="static_box_item shadow_box">
     <div class="static_box_prod_item" *ngFor="let item of statisticsList2">

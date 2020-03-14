@@ -11,13 +11,13 @@ import {OrderService} from "../../services/order.service";
 })
 export class CompletedOrdersComponent implements OnInit {
 
-  private statusList: any = [];
-  private completedOrders: any;
+  public statusList: any = [];
+  public completedOrders: any;
 
-  private visibleIndex: number = -1;
+  public visibleIndex: number = -1;
 
   constructor(
-    private OrderService: OrderService
+    public OrderService: OrderService
   ) {
   }
 

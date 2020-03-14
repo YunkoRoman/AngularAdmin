@@ -11,8 +11,8 @@ import {Router} from "@angular/router";
 })
 export class AdminTitleComponent implements OnInit {
 
-  constructor(private AuthService: AuthService,
-              private router: Router) {
+  constructor(public AuthService: AuthService,
+              public router: Router) {
   }
 
   ngOnInit() {

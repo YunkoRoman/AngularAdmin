@@ -11,10 +11,10 @@ import * as moment from 'moment';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  private statisticsList: any = [];
-  private statisticsList2: any = [];
-  private showRestFilt: boolean = false;
-  private menuList: any = [];
+  public statisticsList: any = [];
+  public statisticsList2: any = [];
+  public showRestFilt: boolean = false;
+  public menuList: any = [];
   public selected: { start: any, end: any };
 
 
@@ -44,18 +44,26 @@ export class StatisticsComponent implements OnInit {
     }
   }
 
-  // GenerateReport() {
-  //   const date = this.selected;
-  //   console.log(date);
-  //   const iso = new Date(date.start._d);
-  //   const dateStart = iso.setDate(iso.getDate() + 1);
-  //
-  //
-  //   this.StatisticsService.RestStat(1, dateStart, date.end._d).subscribe((data: Response) => {
-  //     this.statisticsList2 = data.msg;
-  //     this.statisticsList = data.msg;
-  //
-  //     console.log(data.msg);
-  //   });
-  // }
+  GenerateReport() {
+
+    const date = this.selected;
+    const a = new Date(date.start._d);
+    const b = new Date(date.end._d);
+
+    let day = a.getDate();
+    let year = a.getFullYear();
+    let month = a.getMonth() + 1;
+    const dateStart = `${year}-${month}-${day}`;
+
+    let dayEnd = b.getDate();
+    let yearEnd = b.getFullYear();
+    let monthEnd = b.getMonth() + 1;
+    const dateEnd = `${yearEnd}-${monthEnd}-${dayEnd}`;
+
+    this.StatisticsService.RestStat(1, dateStart, dateEnd).subscribe((data: Response) => {
+      this.statisticsList2 = data.msg;
+      this.statisticsList = data.msg;
+
+    });
+  }
 }

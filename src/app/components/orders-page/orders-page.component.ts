@@ -10,13 +10,13 @@ import {Response} from "../../interfaces/Response";
   styleUrls: ['./orders-page.component.css']
 })
 export class OrdersPageComponent implements OnInit {
-  private statusList: any = [];
-  private orders: any;
-  private sub: Subscription;
-  private visibleIndex: number = -1;
+  public statusList: any = [];
+  public orders: any;
+  public sub: Subscription;
+  public visibleIndex: number = -1;
 
-  constructor(private SocketService: SocketService,
-              private OrderService: OrderService
+  constructor(public SocketService: SocketService,
+              public OrderService: OrderService
   ) {
   }
 
