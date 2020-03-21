@@ -22,7 +22,6 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.GetStatData()
     this.StatisticsService.menuList(1).subscribe((data: Response) => {
       this.menuList = data.msg
     })

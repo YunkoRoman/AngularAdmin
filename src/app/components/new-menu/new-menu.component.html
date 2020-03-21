@@ -1,0 +1,13 @@
+<div class="create_box">
+  <div class="create_box_form shadow_box">
+    <form #createMenuForm="ngForm" (ngSubmit)="CreateMenu(createMenuForm)" class="create_form">
+      <p class="h2">Write title the menu</p>
+      <input type="text" name="titleName" placeholder="Title" ngModel
+             class="form-control inp_marg" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+      <div class="inp_btn">
+        <button class="btn btn-success"> Create</button>
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="create_box">
+  <div class="create_box_form shadow_box">
+    <form #createProdForm="ngForm" (ngSubmit)="CreateProd(createProdForm)" class="create_form">
+      <p class="h2">Write title the product:</p>
+      <input type="text" name="titleName" placeholder="Title" ngModel
+             class="form-control inp_marg" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+
+      <p class="h2">Write description about this product:</p>
+      <textarea type="text" name="prodDescription" placeholder="Description" ngModel
+                class="form-control inp_marg" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"> </textarea>
+
+      <p class="h2">Price:</p>
+      <input type="number" name="price" placeholder="Price" ngModel
+             class="form-control inp_marg" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+
+      <p class="h2">Choose menu for this product:</p>
+      <div class="res_list">
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputGroupSelect01" name="menu_id" ngModel>
+            <option value="" disabled selected>Choose...</option>
+            <option *ngFor="let menu of menuList" [value]="menu.id">{{menu.name}}</option>
+          </select>
+        </div>
+
+      <p class="h2">Choose picture for this product:</p>
+      <input type="file" name="File" placeholder="File" (change)="FileChange($event)"
+             class="form-control inp_marg" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+
+      </div>
+
+      <div class="inp_btn">
+        <button class="btn btn-success"> Create</button>
+      </div>
+    </form>
+  </div>
+
+</div>

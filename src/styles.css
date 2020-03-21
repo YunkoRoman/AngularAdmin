@@ -106,12 +106,14 @@ body {
   line-height: 1;
   background-color: #ffffff;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
 ol,
 ul {
   list-style: none;
@@ -134,9 +136,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-*{
+
+* {
   outline: none !important
 }
+
 button {
   padding: 0;
   border: none;
@@ -147,24 +151,91 @@ button {
     считают, что необходимо оставлять стрелочный вид для кнопок */
   cursor: pointer;
 }
-.h1{
-  font-family: 'Roboto',sans-serif;
+
+.h1 {
+  font-family: 'Roboto', sans-serif;
   margin-left: 15px;
   font-size: x-large;
   font-weight: bold;
   margin-top: 25px;
 
 }
-.h2{
-  font-family: 'Roboto',sans-serif;
-  margin-left: 15px;
+
+.h2 {
+  font-family: 'Roboto', sans-serif;
+  /*margin-left: 15px;*/
   font-size: large;
   font-weight: bold;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 
 }
-/* You can add global styles to this file, and also import other style files */
+
+.create_box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+.create_box_form {
+  width: 70%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+
+}
+
+.shadow_box {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+.create_form {
+
+}
+
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.inp_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.inp_marg {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.chose_btn {
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  padding: 5px;
+  height: 28px;
+  border-radius: 5px;
+  color: #000000;
+  background-color: #A3E95A;
+  border-color: #59BC74;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+.chose_btn:hover {
+  opacity: 0.8;
+}
+
+.pointer {
+  cursor: pointer
+}

@@ -22,8 +22,10 @@ import {MatFormFieldModule,} from "@angular/material/form-field";
 import {MatInputModule,} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatNativeDateModule} from "@angular/material/core";
-import { CreationComponent } from './components/creation/creation.component'
+import {CreationComponent} from './components/creation/creation.component'
 import {HttpAuthInterceptor} from "./interceptor/auth.interceptor";
+import {NewProdComponent} from './components/new-prod/new-prod.component';
+import {NewMenuComponent} from './components/new-menu/new-menu.component';
 
 
 const routes: Routes = [
@@ -31,7 +33,14 @@ const routes: Routes = [
   {path: 'orders', component: OrdersPageComponent},
   {path: 'completedOrders', component: CompletedOrdersComponent},
   {path: 'statistics', component: StatisticsComponent},
-  {path: 'creation', component: CreationComponent},
+  {
+    path: 'creation', component: CreationComponent,
+    children: [
+      {path: 'new_product', component: NewProdComponent},
+      {path: 'new_menu', component: NewMenuComponent},
+    ]
+  },
+
 ];
 const config: SocketIoConfig = {url: 'http://localhost:4444', options: {}};
 
@@ -44,6 +53,8 @@ const config: SocketIoConfig = {url: 'http://localhost:4444', options: {}};
     CompletedOrdersComponent,
     StatisticsComponent,
     CreationComponent,
+    NewProdComponent,
+    NewMenuComponent,
   ],
   imports: [
     BrowserModule,
