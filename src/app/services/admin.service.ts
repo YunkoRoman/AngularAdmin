@@ -16,6 +16,12 @@ export class AdminService {
   }
 
   sendPicture(file: any, prod_id) {
-    return this.http.post(AppSettings.API + '/admin/createProduct/picture/'+ prod_id, file)
+    return this.http.post(AppSettings.API + '/admin/createProduct/picture/' + prod_id, file)
   }
+
+  createMenu(form: any) {
+    return this.http.post(`${AppSettings.API}/admin/createMenu`, form)
+  }
+
+
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {Response} from "../../interfaces/Response";
+import {AdminService} from "../../services/admin.service";
 
 @Component({
   selector: 'app-new-menu',
@@ -8,12 +10,15 @@ import {NgForm} from "@angular/forms";
 })
 export class NewMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public AdminService: AdminService) {
+  }
 
   ngOnInit(): void {
   }
 
-  CreateMenu(Form: NgForm) {
-    console.log(Form.value);
+  CreateMenu(form: NgForm) {
+    this.AdminService.createMenu(form.value).subscribe((data: Response) => {
+      console.log(data);
+    })
   }
 }

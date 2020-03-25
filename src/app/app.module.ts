@@ -26,15 +26,17 @@ import {CreationComponent} from './components/creation/creation.component'
 import {HttpAuthInterceptor} from "./interceptor/auth.interceptor";
 import {NewProdComponent} from './components/new-prod/new-prod.component';
 import {NewMenuComponent} from './components/new-menu/new-menu.component';
+import {YGuard} from './security/y.guard'
 
 
 const routes: Routes = [
   {path: '', component: AdminTitleComponent},
-  {path: 'orders', component: OrdersPageComponent},
-  {path: 'completedOrders', component: CompletedOrdersComponent},
-  {path: 'statistics', component: StatisticsComponent},
+  {path: 'orders', component: OrdersPageComponent, canActivate: [YGuard]},
+  {path: 'completedOrders', component: CompletedOrdersComponent, canActivate: [YGuard]},
+  {path: 'statistics', component: StatisticsComponent, canActivate: [YGuard]},
   {
-    path: 'creation', component: CreationComponent,
+    path: 'creation', component: CreationComponent, canActivate: [YGuard],
+    canActivateChild: [YGuard],
     children: [
       {path: 'new_product', component: NewProdComponent},
       {path: 'new_menu', component: NewMenuComponent},
@@ -68,7 +70,7 @@ const config: SocketIoConfig = {url: 'http://localhost:4444', options: {}};
     MatNativeDateModule, MatFormFieldModule, MatInputModule,
     MatButtonModule, SatDatepickerModule, SatNativeDateModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true}, YGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

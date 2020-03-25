@@ -13,4 +13,7 @@ export class AuthService {
   authAdmin(login: string, password: string) {
     return this.http.post(AppSettings.API + '/auth', {login, password})
   }
+  checkUser() {
+    return this.http.get(`${AppSettings.API}/auth/check`)
+  }
 }
